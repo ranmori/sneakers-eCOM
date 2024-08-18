@@ -19,8 +19,8 @@ function imageChanger() {
   header.style.display = 'none'
   productDetails.style.display = 'none';
   console.log('success');
-
-  // Event listener for closing the image view
+  
+ // Event listener for closing the image view
   const close = document.createElement('div');
   close.id = 'close-button';
 
@@ -84,7 +84,7 @@ function decreaseQuantity() {
 const addCart = document.getElementById('add');
 
 function addToCart() {
-  // Display a temporary message confirming the addition to the cart
+   // Display a temporary message confirming the addition to the cart
   const cartMessage = document.createElement('div');
   const message = document.createElement('p');
   cartMessage.id = 'cart-message';
@@ -100,7 +100,7 @@ function addToCart() {
   message.textContent = 'Successfully added to cart!';
   cartMessage.appendChild(message);
   document.body.appendChild(cartMessage);
-  // Remove the message after 3 seconds
+ // Remove the message after 3 seconds
   setTimeout(() => {
     document.body.removeChild(cartMessage);
   }, 3000);
@@ -110,8 +110,8 @@ function addToCart() {
   const productElement = document.getElementById('main');
   const itemId = productElement.dataset.id; // Ensure the HTML element has a data-id attribute
   const itemName = document.getElementById('productName').textContent;
-  const itemPriceElement = document.getElementById('productPrice');
-  const itemPrice = itemPriceElement ? itemPriceElement.textContent : '0';
+      const itemPriceElement = document.getElementById('productPrice');
+    const itemPrice = itemPriceElement ? itemPriceElement.textContent : '0';
   const itemImage = document.getElementById('large-img').src
   const quantity = parseInt(document.getElementById('quantity').value, 10);
   const item = {
@@ -129,10 +129,10 @@ function addToCart() {
   } else {
     cart.push(item); // add  a new item
   }
-  // Save the updated cart to local storage
+ // Save the updated cart to local storage
 
   localStorage.setItem('cart', JSON.stringify(cart));
-  console.log('cart:', cart)
+  console.log('cart:',cart)
 }
 
 
@@ -149,8 +149,8 @@ function getCartItems() {
 
 }
 // Event listener for the cart icon click
-const cartIcon = document.getElementById('cart-icon');
-cartIcon.addEventListener('click', mycart);
+const cartIcon=document.getElementById('cart-icon');
+cartIcon.addEventListener('click',mycart);
 
 // Function to render the cart items in a modal or fixed position element
 function mycart() {
@@ -159,19 +159,19 @@ function mycart() {
   const cartItems = getCartItems();
   const cartContainer = document.getElementById('main')
   console.log('got them ', cartItems)
-  // Create a container for the cart items
-  const cartcontainer = document.createElement('div');
-  cartcontainer.id = 'cart-container';
-  cartcontainer.style.position = 'fixed';
-  cartcontainer.style.top = '70px';
-  cartcontainer.style.right = '10px';
-  cartcontainer.style.backgroundColor = 'white';
-  cartcontainer.style.padding = '20px';
-  cartcontainer.style.color = 'black';
-  cartcontainer.style.borderRadius = '10px';
-  cartcontainer.style.boxShadow = '0px 0px 10px rgba(0, 0, 0, 0.3)';
-  cartcontainer.style.zIndex = '1000';
-  document.body.appendChild(cartcontainer);
+// Create a container for the cart items
+      const  cartcontainer = document.createElement('div');
+        cartcontainer.id = 'cart-container';
+        cartcontainer.style.position = 'fixed';
+        cartcontainer.style.top = '70px';
+        cartcontainer.style.right = '10px';
+        cartcontainer.style.backgroundColor = 'white';
+        cartcontainer.style.padding = '20px';
+        cartcontainer.style.color= 'black';
+        cartcontainer.style.borderRadius = '10px';
+        cartcontainer.style.boxShadow = '0px 0px 10px rgba(0, 0, 0, 0.3)';
+        cartcontainer.style.zIndex = '1000';
+        document.body.appendChild(cartcontainer);
 
   // for each item added create a n image name price and quantity
   cartItems.forEach(item => {
@@ -182,48 +182,52 @@ function mycart() {
     itemImage.src = item.image;
     itemImage.alt = item.name;
     itemImage.style.width = '100px';
-    itemImage.style.borderRadius = '10px';
+    itemImage.style.borderRadius='10px';
+    itemImage.style.padding='8px';
 
     const itemPrice = document.createElement('p');
     // Function to extract numeric value from a price string with a dollar sign
-    function parsePrice(priceString) {
-      // Remove any non-numeric characters (except for the decimal point)
+    function parsePrice(priceString){
+        // Remove any non-numeric characters (except for the decimal point)
       return parseFloat(priceString.replace(/[^0-9.]/g, ''))
     }
     // Convert item.price and item.quantity to numbers explicitly
-    const price = parsePrice(item.price);
-
-    itemPrice.textContent =
-      `Price : $${price * Number(item.quantity)}`;
-
+    const price =parsePrice(item.price);
+    
+    itemPrice.textContent = 
+      `Price : $${price * Number(item.quantity)}`
+    ;
+    itemPrice.style.padding='8px';
+  
     const itemName = document.createElement('p');
     itemName.textContent = item.name
+    itemName.style.padding='8px';
     const itemQuantity = document.createElement('p');
     itemQuantity.textContent =
-      `quantity: ${Number(item.quantity)}`;
-
+      `Quantity: ${Number(item.quantity)}`;
+   itemQuantity.style.padding='8px';
     // Append all elements to the item container
     itemElement.appendChild(itemName);
     itemElement.appendChild(itemPrice);
     itemElement.appendChild(itemImage);
     itemElement.appendChild(itemQuantity)
     cartcontainer.appendChild(itemElement);
-    console.log('item:', item);
+ console.log('item:', item);
   });
-  setTimeout(() => {
-
+  setTimeout(()=>{
+    
     document.body.removeChild(cartcontainer);
-
-  }, 4000)
-
-
+    
+  },4000)
+  
+  
   // Check if the cartcontainer exists before trying to remove it
-  // cartIcon.addEventListener('click', function() {
-  //   const existingContainer = document.getElementById('cart-container');
-  //   if (existingContainer) {
-  //     document.body.removeChild(existingContainer);
-  //   }
-  // });
+// cartIcon.addEventListener('click', function() {
+//   const existingContainer = document.getElementById('cart-container');
+//   if (existingContainer) {
+//     document.body.removeChild(existingContainer);
+//   }
+// });
 
-
+  
 }
