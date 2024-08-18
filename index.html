@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sneakers eccomerce</title>
+    <!-- Font Awesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+
+  <body id="body">
+    <header id="header">
+      <nav>
+        <a class="logo">sneakers</a>
+        <ul>
+          <li><a href="#collections">Collections</a></li>
+          <li><a href="#men">Men</a></li>
+          <li><a href="#women">Women</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="mini-nav">
+          <i class="fa fa-cart-shopping" id="cart-icon"></i>
+          <img src="https://plus.unsplash.com/premium_photo-1669782051596-368428b12579?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fHByb2ZpbGUlMjBwaG90b3xlbnwwfHwwfHx8MA%3D%3D" style="width:35px; height:40px; border-radius:100%">
+        </div>
+      </nav>
+    </header>
+    <main class="container" id="main" data-id="123"">
+        <section id=" productImage"class="product-image">
+      <img src="https://images.unsplash.com/photo-1603808033192-082d6919d3e1?q=80&w=1430&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Fall Limited Edition Sneakers" id="large-img">
+
+      <div class="thumbnails">
+        <img src="https://images.unsplash.com/photo-1603808033192-082d6919d3e1?q=80&w=1430&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Side view of Fall Limited Edition Sneakers" id="thumbfst">
+        <img id="thumbsnd" src="https://images.unsplash.com/photo-1603808033596-5d1fa1629eae?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDN8fHxlbnwwfHx8fHw%3D" alt="Back view of Fall Limited Edition Sneakers">
+        <img id="thumbtrd" src="https://images.unsplash.com/photo-1603808033176-9d134e6f2c74?q=80&w=1430&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Top view of Fall Limited Edition Sneakers">
+        <img id="thumbfrt" src="https://images.unsplash.com/photo-1603808033587-935942847de4?q=80&w=1412&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Sole view of Fall Limited Edition Sneakers">
+      </div>
+      </section>
+      <section class="product-details" id="productDetails">
+        <p>SNEAKER COMPANY</p>
+        <h1 class="product-title" id="productName">Fall Limited Edition Sneakers</h1>
+        <p class="product-description">
+          These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they'll withstand everything the weather can offer.
+        </p>
+        <div class="product-price">
+          $125.00
+          <span class="original-price" id="productPrice">$250.00</span>
+          <span class="discount">50% OFF</span>
+        </div>
+        <div class="add-to-cart">
+          <label for="quantity" class="sr-only">Quantity</label>
+          <div class="quantity">
+            <button aria-label="Decrease quantity" onclick="decreaseQuantity()">-</button>
+            <input type="text" id="quantity" value="0" aria-label="Product quantity">
+            <button aria-label="Increase quantity" id="increaseBtn" onclick="increaseQuantity()">+</button>
+          </div>
+          <button type="button" id="add" aria-label="Add to cart">
+            <i class="fa fa-cart-shopping" style="padding:10px;"></i>Add to cart</button>
+        </div>
+      </section>
+    </main>
+    <!--     <footer>
+        <p>&copy; 2024 Sneakers Shop</p>
+    </footer> -->
+    <script src="script.js"></script>
+  </body>
+
+</html>
